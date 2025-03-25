@@ -1,0 +1,119 @@
+@import './base.css';
+
+#app {
+  max-width: 3000px;
+  margin: 0 auto;
+  padding: 0.5rem;
+  font-weight: normal;
+}
+
+a,
+.green {
+  text-decoration: none;
+  color: hsla(160, 100%, 37%, 1);
+  transition: 0.4s;
+  padding: 3px;
+}
+
+/* Tổng quan Layout  */
+.body {
+  display: flex;
+  margin-top: 56px; /* Đảm bảo nội dung bắt đầu dưới header */
+  height: calc(100vh - 56px); /* Trừ chiều cao header */
+}
+
+
+/* Sider */
+.sider {
+  flex: 0 0 190px; /* Chiều rộng cố định */
+  background-color: rgb(242, 242, 242); /* Màu nền */
+  border-right: 1px solid #ddd; /* Đường phân cách */
+  transition: transform 0.3s ease-in-out; /* Hiệu ứng trượt khi mở/đóng */
+}
+
+
+/* Main */
+.main {
+  flex: 1;
+  padding: 45px;
+  padding-left: 60px;
+  padding-top: 20px;
+  margin: auto;
+  overflow-y: auto;
+  transition: all 0.3s ease-in-out;
+  /* Hiệu ứng khi thay đổi */
+}
+
+/* Main khi không có Sider */
+.main.full-width {
+  margin-left: 0;
+  flex: 1;
+}
+
+/* Nút ẩn/hiện Sider */
+.toggle-sider-btn {
+  position: fixed; /* Đảm bảo nút luôn cố định trên giao diện */
+  top: 10px; /* Vị trí bên dưới Header */
+  left: 15px; /* Lề trái */
+  z-index: 1001; /* Đảm bảo nút nằm trên các thành phần khác */
+  display: flex;
+  align-items: center;
+  background: linear-gradient(45deg, #007bff, #0056b3); /* Gradient màu */
+  border: none;
+  border-radius: 5px; 
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Hiệu ứng bóng đổ */
+  cursor: pointer;
+  transition: all 0.3s ease; /* Hiệu ứng chuyển đổi */
+}
+
+.toggle-sider-btn:hover {
+  background: #0056b3; /* Đổi màu khi hover */
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.3); /* Bóng đổ đậm hơn */
+  transform: scale(1.05); /* Tăng kích thước nhẹ khi hover */
+}
+
+/* Biểu tượng trong nút */
+.toggle-sider-btn img {
+  width: 35px; /* Đặt chiều rộng của biểu tượng */
+  height: 45px; /* Đặt chiều cao của biểu tượng */
+}
+@media (hover: hover) {
+  a:hover {
+    background-color: #0056b3;
+  }
+}
+
+@media (min-width: 1800px) {
+  body {
+    display: flex;
+    place-items: center;
+  }
+
+  #app {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 0 2rem;
+  }
+}
+@media (max-width: 768px) {
+  /* Ẩn sider */
+  .sider {
+    display: block;  /* Hiển thị lại khi màn hình nhỏ */
+    position: relative;  /* Đặt sider vào vị trí bình thường */
+    top: 0; /* Đảm bảo nó bắt đầu từ trên cùng */
+    width: 100%; /* Chiếm toàn bộ chiều rộng */
+    z-index: 10; /* Đảm bảo sider không bị chồng lên bởi các thành phần khác */
+  }
+  
+
+  /* Điều chỉnh body khi màn hình nhỏ */
+  .body {
+    flex-direction: column; /* Xếp các phần tử theo chiều dọc */
+  }
+
+  /* Main chiếm toàn bộ chiều rộng */
+  .main {
+    margin-left: 0;
+    width: 100%;
+  }
+}

@@ -1,0 +1,110 @@
+/* Header */
+.header {
+  background: #202020;
+  padding: 10px 0;
+   position: fixed; /* Giữ cố định header trên cùng */
+  top: 0;
+  left: 50%; /* Canh giữa theo chiều ngang */
+  transform: translateX(-35%); /* Căn giữa hoàn hảo */
+  width: 70%; /* Chiều rộng của header */
+  z-index: 999; /* Đảm bảo header nằm trên các thành phần khác */
+  height: 60px; /* Đặt chiều cao cố định */
+  line-height: 40px; /* Canh giữa nội dung */
+  text-align: center; /* Canh giữa nội dung bên trong */
+  justify-content: space-between; /* Căn chỉnh các thành phần trong navbar */
+  align-items: center;
+}
+.header a img {
+  font-size: 24px;
+  font-weight: 700;
+  color: #fff; /* Đảm bảo logo có màu nổi bật */
+  text-decoration: none;
+}
+
+/* Body */
+.body {
+  display: flex;
+  margin-top: 56px; /* Đảm bảo nội dung bắt đầu dưới header */
+  height: calc(100vh - 56px); /* Trừ chiều cao header */
+  overflow: hidden;
+}
+.main {
+  flex: 1;
+  padding: 15px;
+  overflow-y: auto;
+}
+/* End Body */
+
+/* Sidebar */
+.sider-title {
+  font-size: 18px;
+  margin-bottom: 20px;
+  color: #202020; /* Màu chữ trắng cho tiêu đề */
+  text-align: center;
+  font-weight: bold;
+}
+
+.sider-menu {
+  list-style-type: none;
+  padding: 0;
+}
+
+.sider-item {
+  margin-bottom: 15px;
+}
+.sider-item {
+  margin-bottom: 15px;
+  cursor: pointer;
+}
+.sider-link {
+  text-decoration: none;
+  color: #27303a;
+  font-size: 16px;
+  transition: color 0.3s;
+}
+
+.sider-link:hover {
+  color: #fff;
+}
+
+
+
+/* Navbar */
+.navbar {
+  background-color: #202020; /* Màu tối để phù hợp với thiết kế chung */
+  margin: 5px;
+  padding: 5px;
+}
+
+a.navbar-brand {
+  font-size: 1.25rem;
+  color: #fff;
+  text-decoration: none;
+  margin-bottom: 10px;
+
+}
+
+a.navbar-brand img {
+  width: 40px;
+  height: 40px; /* Canh giữa hình ảnh với chữ */
+}
+
+.nav-item {
+  list-style: none; /* Loại bỏ dấu chấm đầu dòng của danh sách */
+  display: inline-block; /* Hiển thị các mục theo dạng dòng */
+  margin-right: 20px; /* Khoảng cách giữa các mục */
+  margin-bottom: 10px; /* Khoảng cách giữa các mục */
+  border-radius: 5px;
+}
+
+.nav-item a {
+  color: #fff; /* Màu chữ của mục */
+  text-decoration: none; /* Loại bỏ gạch chân mặc định */
+  font-size: 1rem; /* Kích thước chữ */
+  padding: 5px 10px; /* Khoảng cách xung quanh chữ */
+  transition: background-color 0.3s, color 0.3s; /* Hiệu ứng chuyển màu */
+}
+
+:hover{
+  border-radius: 5px;
+}

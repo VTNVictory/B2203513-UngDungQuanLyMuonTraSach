@@ -1,0 +1,171 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f5f7fa;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.form-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 70vh;
+  margin: 0;
+  padding: 20px;
+  background-color: #f0f2f5;
+}
+
+.docgia-form,
+.login-form {
+  max-width: 600px;
+  min-width: 280px;
+  width: 100%;
+  padding: 25px;
+  border: none;
+  border-radius: 15px;
+  background: #ffffff;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease;
+}
+
+.docgia-form:hover,
+.login-form:hover {
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 1.6em;
+  color: #333333;
+}
+
+.form-group {
+  margin-bottom: 18px;
+}
+
+label {
+  display: block;
+  font-size: 0.95em;
+  margin-bottom: 6px;
+  color: #333;
+  font-weight: 500;
+}
+
+input,
+select {
+  width: 100%;
+  padding: 12px;
+  font-size: 1em;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  outline: none;
+  transition: all 0.3s ease;
+  background: #fafafa;
+}
+
+input:focus,
+select:focus {
+  border-color: #4a90e2;
+  background: #ffffff;
+  box-shadow: 0 0 5px rgba(74, 144, 226, 0.5);
+}
+
+input::placeholder {
+  color: #999;
+  font-size: 0.9em;
+}
+
+button {
+  display: block;
+  width: 50%;
+  padding: 12px 0;
+  font-size: 1.05em;
+  font-weight: bold;
+  color: #fff;
+  background: linear-gradient(135deg, #4a90e2, #357ABD);
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  margin: 25px auto 0;
+  transition: all 0.3s ease;
+}
+
+button:hover {
+  background: linear-gradient(135deg, #357ABD, #285c9c);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(53, 122, 189, 0.4);
+}
+
+fieldset {
+  margin-bottom: 20px;
+  padding: 15px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background: #fafafa;
+}
+
+legend {
+  font-weight: bold;
+  font-size: 1.2em;
+  padding: 0 8px;
+  color: #333;
+}
+
+.success {
+  color: #28a745;
+  text-align: center;
+  margin-top: 15px;
+  font-weight: bold;
+}
+
+.error {
+  color: #dc3545;
+  text-align: center;
+  margin-top: 15px;
+  font-weight: bold;
+}
+
+/* Mobile first */
+@media screen and (max-width: 768px) {
+
+  .docgia-form,
+  .login-form {
+    padding: 20px;
+    width: 100%;
+  }
+
+  button {
+    width: 70%;
+  }
+}
+
+/* Tablet and small desktop */
+@media screen and (min-width: 768px) and (max-width: 1200px) {
+
+  .docgia-form,
+  .login-form {
+    width: 50%;
+  }
+}
+
+/* Large screens */
+@media screen and (min-width: 1200px) {
+
+  .docgia-form,
+  .login-form {
+    width: 40%;
+  }
+
+  legend {
+    font-size: 1.5em;
+  }
+
+  h2 {
+    font-size: 2em;
+  }
+}
