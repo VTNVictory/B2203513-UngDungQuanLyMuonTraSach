@@ -3,6 +3,7 @@
     <div class="header-actions">
       <h2>Quản lý phiếu mượn</h2>
     </div>
+
     <div v-if="borrowRecords.length === 0">
       <p>Không có phiếu mượn nào cần xử lý.</p>
     </div>
@@ -14,10 +15,17 @@
         class="borrow-record"
       >
         <div class="record-item">
+          <strong>Mã độc giả:</strong> {{ record.MADOCGIA }}
+        </div>
+        <div class="record-item">
           <strong>Người mượn:</strong> {{ getReaderName(record.MADOCGIA) }}
         </div>
         <div class="record-item">
           <strong>Ngày mượn:</strong> {{ formatDate(record.NGAYMUON) }}
+        </div>
+        <div class="record-item">
+          <strong>Ngày trả:</strong>
+          {{ record.NGAYTRA ? formatDate(record.NGAYTRA) : "Chưa trả" }}
         </div>
 
         <div class="table-container">
@@ -65,6 +73,7 @@
 
 <script>
 import axios from "axios";
+
 export default {
   data() {
     return {
@@ -88,11 +97,11 @@ export default {
       }
     },
     async fetchReaders() {
-      const response = await axios.get("http://localhost:3000/api/docgia");
+      const response = await axios.get("/api/docgia");
       this.readers = response.data;
     },
     async fetchBooks() {
-      const response = await axios.get("http://localhost:3000/api/sach");
+      const response = await axios.get("/api/sach");
       this.books = response.data;
     },
     groupBorrowRecords(records) {
@@ -108,6 +117,7 @@ export default {
             _id: key,
             MADOCGIA: record.MADOCGIA,
             NGAYMUON: record.NGAYMUON,
+            NGAYTRA: record.NGAYTRA || null,
             books: {},
           };
         }
@@ -149,10 +159,13 @@ export default {
       }
     },
     formatDate(dateString) {
+      if (!dateString) return "Không có dữ liệu";
       const date = new Date(dateString);
+      const minutes =
+        date.getMinutes() < 10 ? `0${date.getMinutes()}` : date.getMinutes();
       return `${date.getDate()}/${
         date.getMonth() + 1
-      }/${date.getFullYear()} ${date.getHours()}:${date.getMinutes()}`;
+      }/${date.getFullYear()} ${date.getHours()}:${minutes}`;
     },
     formatCurrency(amount) {
       if (!amount || isNaN(amount)) return "Không xác định";
